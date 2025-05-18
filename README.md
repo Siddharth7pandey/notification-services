@@ -39,19 +39,19 @@ Edit
 docker run -d --hostname rabbit --name rabbitmq -p 5672:5672 rabbitmq:3
 Or install RabbitMQ manually from https://www.rabbitmq.com/download.html
 
-4. Configure worker.py
-Edit the following variables:
+### 4. Configure `worker.py` (optional at start)
 
-python
-Copy
-Edit
+If you want to test **email** or **SMS** notifications, fill in these variables in `worker.py`:
+
+```python
 FROM_EMAIL = "your_email@gmail.com"
-EMAIL_APP_PASSWORD = "your_gmail_app_password"
+EMAIL_APP_PASSWORD = "your_gmail_app_password"  # Required for real email sending
 
 TWILIO_ACCOUNT_SID = "your_twilio_account_sid"
 TWILIO_AUTH_TOKEN = "your_twilio_auth_token"
 TWILIO_PHONE_NUMBER = "+1234567890"
-YOUR_PHONE_NUMBER = "+91xxxxxxxxxx"
+YOUR_PHONE_NUMBER = "+91xxxxxxxxxx"            # Your phone number to receive SMS
+
 5. Run the FastAPI server
 bash
 Copy
